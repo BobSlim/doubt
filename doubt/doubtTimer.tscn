@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://ihlvimm62ka0"]
+
+[ext_resource type="Texture2D" uid="uid://bcksfsrlj6nym" path="res://assets/icon.svg" id="1_oc4hx"]
+[ext_resource type="Script" path="res://doubt/doubtTimer.gd" id="1_umqsf"]
+
+[node name="DoubtTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -320.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_umqsf")
+
+[node name="barMain" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+value = 0.615
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("1_oc4hx")
+texture_progress = ExtResource("1_oc4hx")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 1, 0, 1)
+
+[node name="bar1" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 16.0
+max_value = 1.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("1_oc4hx")
+texture_progress = ExtResource("1_oc4hx")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 1, 0, 1)
+
+[node name="bar2" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 32.0
+offset_bottom = 16.0
+max_value = 1.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("1_oc4hx")
+texture_progress = ExtResource("1_oc4hx")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 1, 0, 1)

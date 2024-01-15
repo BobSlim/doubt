@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkiyp4j4ynflj"]
+
+[ext_resource type="PackedScene" uid="uid://dchmjgq5vdfwu" path="res://agent/agent.tscn" id="1_r46qn"]
+[ext_resource type="Script" path="res://doubt/doubtSystem.gd" id="2_pevw3"]
+[ext_resource type="PackedScene" uid="uid://dblrbl67llhb8" path="res://tileset/tiles.tscn" id="2_qqnm7"]
+[ext_resource type="PackedScene" uid="uid://ihlvimm62ka0" path="res://doubt/doubtTimer.tscn" id="3_2ceh7"]
+[ext_resource type="Texture2D" uid="uid://pe5yiwrpatys" path="res://assets/lil-bad-guy-01.png" id="4_3dxhx"]
+[ext_resource type="Texture2D" uid="uid://b5kugxdsnbads" path="res://assets/thumbdrake.jpg" id="4_yowhr"]
+[ext_resource type="Texture2D" uid="uid://b4boeou8efjuu" path="res://assets/lil-bad-guy-02.png" id="5_xpx5e"]
+[ext_resource type="Texture2D" uid="uid://bsers4mtvsxp1" path="res://assets/lil-bad-guy-01-new.png" id="7_2noh8"]
+
+[node name="Main" type="Node2D"]
+
+[node name="agent" parent="." instance=ExtResource("1_r46qn")]
+position = Vector2(102, 104.5)
+
+[node name="doubt" type="Node" parent="agent"]
+script = ExtResource("2_pevw3")
+
+[node name="Camera2D" type="Camera2D" parent="agent"]
+position = Vector2(2, -0.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Tiles" parent="." instance=ExtResource("2_qqnm7")]
+rendering_quadrant_size = 8
+layer_0/tile_data = PackedInt32Array(458756, 196608, 0, 458757, 196608, 0, 458758, 196608, 0, 458759, 196608, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458763, 65536, 0, 458764, 65536, 0, 458765, 65536, 0, 458766, 65536, 0, 458767, 65536, 0, 458768, 65536, 0, 458752, 196608, 0, 458753, 196608, 0, 458754, 196608, 0, 458755, 196608, 0, 458769, 196608, 0, 458770, 196608, 0, 458771, 196608, 0, 1048576, 131073, 0, 1048577, 131073, 0, 1048578, 131073, 0, 1048579, 131073, 0, 1048580, 131073, 0, 1048581, 131073, 0, 1048582, 131073, 0, 1048583, 131073, 0, 1048584, 131073, 0, 1048585, 131073, 0, 1048586, 131073, 0, 1048587, 131073, 0, 983051, 1, 0, 983052, 65537, 0, 983053, 131073, 0, 983054, 131073, 0, 983055, 131073, 0, 983056, 131073, 0, 983057, 131073, 0, 983058, 131073, 0, 983059, 131073, 0, 983060, 131073, 0, 983061, 131073, 0, 983062, 131073, 0, 983063, 983041, 0, 1048599, 131073, 0, 1048600, 131073, 0, 1048601, 131073, 0, 1048602, 131073, 0, 1048603, 131073, 0, 1048604, 131073, 0, 1048605, 131073, 0, 1048606, 131073, 0, 1048607, 131073, 0, 1048608, 131073, 0, 1048609, 131073, 0, 1048610, 131073, 0, 1048611, 131073, 0, 1048612, 131073, 0, 1048613, 131073, 0, 1048614, 131073, 0, 1048615, 131073, 0, 1048598, 196609, 1, 1048597, 196609, 1, 1048596, 196609, 1, 1048595, 196609, 1, 1048594, 196609, 1, 1048593, 196609, 1, 1048592, 196609, 1, 1048591, 196609, 1, 1048590, 196609, 1, 1048589, 196609, 1, 1048588, 196609, 1, 983068, 1, 3, 917532, 1, 3, 851996, 1, 3, 983072, 1, 3, 917536, 1, 3, 852000, 1, 3, 786464, 1, 3, 983075, 1, 3, 917539, 1, 3, 852003, 1, 3, 786467, 1, 3, 720931, 1, 3, 983077, 1, 3, 917541, 1, 3, 852005, 1, 3, 786469, 1, 3, 720933, 1, 3, 655397, 1, 3)
+
+[node name="Thumbdrake" type="Sprite2D" parent="."]
+position = Vector2(139, 98.5)
+scale = Vector2(0.0612583, 0.0529412)
+texture = ExtResource("4_yowhr")
+
+[node name="Lil-bad-guy-01" type="Sprite2D" parent="."]
+position = Vector2(80, 88)
+texture = ExtResource("4_3dxhx")
+
+[node name="Lil-bad-guy-02" type="Sprite2D" parent="."]
+position = Vector2(80, 96)
+texture = ExtResource("5_xpx5e")
+
+[node name="Lil-bad-guy-01-new" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+texture = ExtResource("7_2noh8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DoubtTimer" parent="CanvasLayer" instance=ExtResource("3_2ceh7")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -20.0
+offset_right = -16.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[connection signal="doubt_changed" from="agent/doubt" to="CanvasLayer/DoubtTimer" method="_on_doubt_doubt_changed"]
