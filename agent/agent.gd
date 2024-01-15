@@ -6,14 +6,40 @@ const JUMP_VELOCITY = -180.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_double_jump = false
+var stage = "Stage_1_"
+
+var stageWalk = stage + "Walk"
+var stageDefault = stage + "Default"
+var stageJump = stage + "Jumping"
 
 func _ready():
 	pass
 
 func _process(delta):
+	if $doubt.doubt > 0:
+				stage = "Stage_1_"
+				stageWalk = stage + "Walk"
+				stageDefault = stage + "Default"
+				stageJump = stage + "Jumping"
+	elif $doubt.doubt > 1:
+				stage = "Stage_2_"
+				stageWalk = stage + "Walk"
+				stageDefault = stage + "Default"
+				stageJump = stage + "Jumping"
+	elif $doubt.doubt > 1.5:
+				stage = "Stage_3_"
+				stageWalk = stage + "Walk"
+				stageDefault = stage + "Default"
+				stageJump = stage + "Jumping"
+	elif $doubt.doubt > 2:
+				stage = "Stage_4_"
+				stageWalk = stage + "Walk"
+				stageDefault = stage + "Default"
+				stageJump = stage + "Jumping"
 	pass
 
 func _physics_process(delta):
+				
 	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
@@ -31,9 +57,9 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		$sprite.flip_h = !is_right
-		$sprite.play("walk")
+		$sprite.play(stageWalk)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		$sprite.play("default")
+		$sprite.play(stageDefault)
 	
 	move_and_slide()
