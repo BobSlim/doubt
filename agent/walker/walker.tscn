@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm11ecmnycge7"]
+
+[ext_resource type="Script" path="res://agent/walker/walker.gd" id="1_lc5cd"]
+[ext_resource type="Texture2D" uid="uid://bsers4mtvsxp1" path="res://agent/walker/lil-bad-guy-01-new.png" id="2_sl4hq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1xxi"]
+radius = 3.0
+height = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqno2"]
+atlas = ExtResource("2_sl4hq")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c15f"]
+atlas = ExtResource("2_sl4hq")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5aik"]
+atlas = ExtResource("2_sl4hq")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dvsnw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqno2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c15f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqno2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5aik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqno2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Walker" type="CharacterBody2D"]
+script = ExtResource("1_lc5cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_q1xxi")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dvsnw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
