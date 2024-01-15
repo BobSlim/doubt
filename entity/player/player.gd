@@ -3,43 +3,40 @@ extends CharacterBody2D
 const SPEED = 75.0
 const JUMP_VELOCITY = -180.0
 
+@onready var DoubtNode = $doubt as DoubtSystem
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_double_jump = false
-var stage = "Stage_1_"
+var stageWalk: String
+var stageDefault: String
+var stageJump: String
 
-var stageWalk = stage + "Walk"
-var stageDefault = stage + "Default"
-var stageJump = stage + "Jumping"
+func update_animation_stage(new_stage: String):
+	stageWalk = new_stage + "Walk"
+	stageDefault = new_stage + "Default"
+	stageJump = new_stage + "Jumping"
+
+func doubt_stage(doubt: float):
+	var stage = "Stage_4_"
+	if doubt < 0.5:
+		stage = "Stage_1_"
+	elif doubt < 1.0:
+		stage = "Stage_2_"
+	elif doubt < 1.5:
+		stage = "Stage_3_"
+	else:
+		stage = "Stage_4_"
+	return stage
 
 func _ready():
 	pass
 
-func _process(delta):
-	if $doubt.doubt < 0.5:
-				stage = "Stage_1_"
-				stageWalk = stage + "Walk"
-				stageDefault = stage + "Default"
-				stageJump = stage + "Jumping"
-	elif $doubt.doubt < 1.0:
-				stage = "Stage_2_"
-				stageWalk = stage + "Walk"
-				stageDefault = stage + "Default"
-				stageJump = stage + "Jumping"
-	elif $doubt.doubt < 1.5:
-				stage = "Stage_3_"
-				stageWalk = stage + "Walk"
-				stageDefault = stage + "Default"
-				stageJump = stage + "Jumping"
-	elif $doubt.doubt < 2.0:
-				stage = "Stage_4_"
-				stageWalk = stage + "Walk"
-				stageDefault = stage + "Default"
-				stageJump = stage + "Jumping"
-	pass
+func _process(delta: float):
+	var stage = doubt_stage(DoubtNode.doubt)
+	update_animation_stage(stage)
 
-func _physics_process(delta):
-				
+func _physics_process(delta: float):
 	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("ui_accept"):
 		if is_on_floor():
