@@ -16,22 +16,22 @@ func _ready():
 	pass
 
 func _process(delta):
-	if $doubt.doubt > 0:
+	if $doubt.doubt < 0.5:
 				stage = "Stage_1_"
 				stageWalk = stage + "Walk"
 				stageDefault = stage + "Default"
 				stageJump = stage + "Jumping"
-	elif $doubt.doubt > 1:
+	elif $doubt.doubt < 1.0:
 				stage = "Stage_2_"
 				stageWalk = stage + "Walk"
 				stageDefault = stage + "Default"
 				stageJump = stage + "Jumping"
-	elif $doubt.doubt > 1.5:
+	elif $doubt.doubt < 1.5:
 				stage = "Stage_3_"
 				stageWalk = stage + "Walk"
 				stageDefault = stage + "Default"
 				stageJump = stage + "Jumping"
-	elif $doubt.doubt > 2:
+	elif $doubt.doubt < 2.0:
 				stage = "Stage_4_"
 				stageWalk = stage + "Walk"
 				stageDefault = stage + "Default"
