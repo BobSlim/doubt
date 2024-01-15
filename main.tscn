@@ -1,13 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkiyp4j4ynflj"]
+[gd_scene load_steps=7 format=3 uid="uid://bkiyp4j4ynflj"]
 
 [ext_resource type="PackedScene" uid="uid://dchmjgq5vdfwu" path="res://agent/agent.tscn" id="1_r46qn"]
 [ext_resource type="Script" path="res://doubt/doubtSystem.gd" id="2_pevw3"]
 [ext_resource type="PackedScene" uid="uid://dblrbl67llhb8" path="res://tileset/tiles.tscn" id="2_qqnm7"]
 [ext_resource type="PackedScene" uid="uid://ihlvimm62ka0" path="res://doubt/doubtTimer.tscn" id="3_2ceh7"]
-[ext_resource type="Texture2D" uid="uid://pe5yiwrpatys" path="res://assets/lil-bad-guy-01.png" id="4_3dxhx"]
 [ext_resource type="Texture2D" uid="uid://b5kugxdsnbads" path="res://assets/thumbdrake.jpg" id="4_yowhr"]
-[ext_resource type="Texture2D" uid="uid://b4boeou8efjuu" path="res://assets/lil-bad-guy-02.png" id="5_xpx5e"]
-[ext_resource type="Texture2D" uid="uid://bsers4mtvsxp1" path="res://assets/lil-bad-guy-01-new.png" id="7_2noh8"]
+[ext_resource type="PackedScene" uid="uid://cm11ecmnycge7" path="res://agent/walker/walker.tscn" id="6_jbrc3"]
 
 [node name="Main" type="Node2D"]
 
@@ -31,18 +29,6 @@ position = Vector2(139, 98.5)
 scale = Vector2(0.0612583, 0.0529412)
 texture = ExtResource("4_yowhr")
 
-[node name="Lil-bad-guy-01" type="Sprite2D" parent="."]
-position = Vector2(80, 88)
-texture = ExtResource("4_3dxhx")
-
-[node name="Lil-bad-guy-02" type="Sprite2D" parent="."]
-position = Vector2(80, 96)
-texture = ExtResource("5_xpx5e")
-
-[node name="Lil-bad-guy-01-new" type="Sprite2D" parent="."]
-position = Vector2(80, 80)
-texture = ExtResource("7_2noh8")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DoubtTimer" parent="CanvasLayer" instance=ExtResource("3_2ceh7")]
@@ -55,5 +41,8 @@ offset_top = -20.0
 offset_right = -16.0
 offset_bottom = -20.0
 grow_vertical = 0
+
+[node name="Walker" parent="." instance=ExtResource("6_jbrc3")]
+position = Vector2(64, 120)
 
 [connection signal="doubt_changed" from="agent/doubt" to="CanvasLayer/DoubtTimer" method="_on_doubt_doubt_changed"]
