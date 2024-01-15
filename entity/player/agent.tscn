@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://dchmjgq5vdfwu"]
 
-[ext_resource type="Script" path="res://agent/agent.gd" id="1_aes2s"]
-[ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://assets/Lil-Guy-V2.png" id="2_mv50j"]
+[ext_resource type="Script" path="res://entity/player/player.gd" id="1_aes2s"]
+[ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://entity/player/Lil-Guy-V2.png" id="2_mv50j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opgwv"]
 radius = 3.0

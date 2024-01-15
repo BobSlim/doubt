@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ccwh5rynxtx"
-path="res://.godot/imported/Lil-Guy-V2.png-06b9bdf0861458531351be7b1745389d.ctex"
+uid="uid://b4boeou8efjuu"
+path="res://.godot/imported/lil-bad-guy-02.png-a9d54a68aa55554575eb02f4c84510ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Lil-Guy-V2.png"
-dest_files=["res://.godot/imported/Lil-Guy-V2.png-06b9bdf0861458531351be7b1745389d.ctex"]
+source_file="res://entity/walker/lil-bad-guy-02.png"
+dest_files=["res://.godot/imported/lil-bad-guy-02.png-a9d54a68aa55554575eb02f4c84510ec.ctex"]
 
 [params]
 
