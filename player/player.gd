@@ -30,6 +30,9 @@ func update_animation_stage(new_stage: String):
 	stageDefault = new_stage + "Default"
 	stageJump = new_stage + "Jumping"
 
+func pickup(confidence_boost):
+	DoubtNode.doubt = DoubtNode.doubt + confidence_boost
+
 func _ready():
 	_on_doubt_doubt_stage_changed(DoubtNode.doubt_stage)
 
