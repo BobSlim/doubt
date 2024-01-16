@@ -12,29 +12,29 @@ var stageWalk: String
 var stageDefault: String
 var stageJump: String
 
+func _on_doubt_doubt_stage_changed(doubt_stage):
+	var stage = "Stage_1_"
+	match doubt_stage:
+		DoubtNode.DOUBT_STAGES.OLD:
+			stage = "Stage_1_"
+		DoubtNode.DOUBT_STAGES.MIDDLE:
+			stage = "Stage_2_"
+		DoubtNode.DOUBT_STAGES.ADULT:
+			stage = "Stage_3_"
+		DoubtNode.DOUBT_STAGES.PRIME:
+			stage = "Stage_4_"
+	update_animation_stage(stage)
+
 func update_animation_stage(new_stage: String):
 	stageWalk = new_stage + "Walk"
 	stageDefault = new_stage + "Default"
 	stageJump = new_stage + "Jumping"
 
-func doubt_stage(doubt: float):
-	var stage = "Stage_4_"
-	if doubt < 0.5:
-		stage = "Stage_1_"
-	elif doubt < 1.0:
-		stage = "Stage_2_"
-	elif doubt < 1.5:
-		stage = "Stage_3_"
-	else:
-		stage = "Stage_4_"
-	return stage
-
 func _ready():
-	pass
+	_on_doubt_doubt_stage_changed(DoubtNode.doubt_stage)
 
 func _process(delta: float):
-	var stage = doubt_stage(DoubtNode.doubt)
-	update_animation_stage(stage)
+	pass
 
 func _physics_process(delta: float):
 	velocity.y += gravity * delta
@@ -60,3 +60,4 @@ func _physics_process(delta: float):
 		$sprite.play(stageDefault)
 	
 	move_and_slide()
+
