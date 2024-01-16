@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ihlvimm62ka0"]
 
 [ext_resource type="Texture2D" uid="uid://bcksfsrlj6nym" path="res://assets/icon.svg" id="1_oc4hx"]
-[ext_resource type="Script" path="res://doubt/doubtTimer.gd" id="1_umqsf"]
+[ext_resource type="Script" path="res://player/doubt/doubtTimer.gd" id="1_umqsf"]
 
 [node name="DoubtTimer" type="Control"]
 layout_mode = 3
