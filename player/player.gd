@@ -17,6 +17,7 @@ func _on_doubt_doubt_stage_changed(doubt_stage):
 	match doubt_stage:
 		DoubtNode.DOUBT_STAGES.OLD:
 			stage = "Stage_1_"
+			can_double_jump = false
 		DoubtNode.DOUBT_STAGES.MIDDLE:
 			stage = "Stage_2_"
 		DoubtNode.DOUBT_STAGES.ADULT:
