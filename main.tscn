@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkiyp4j4ynflj"]
+[gd_scene load_steps=7 format=3 uid="uid://bkiyp4j4ynflj"]
 
 [ext_resource type="PackedScene" uid="uid://dchmjgq5vdfwu" path="res://player/player.tscn" id="1_r46qn"]
 [ext_resource type="PackedScene" uid="uid://dblrbl67llhb8" path="res://tileset/tiles.tscn" id="2_qqnm7"]
@@ -44,7 +44,6 @@ layer_0/tile_data = PackedInt32Array(458756, 196608, 0, 458757, 196608, 0, 45875
 [node name="Thumbdrake" type="Sprite2D" parent="."]
 position = Vector2(136, 152)
 scale = Vector2(0.0612583, 0.0529412)
-texture = ExtResource("4_yowhr")
 
 [node name="Walker" parent="." instance=ExtResource("6_jbrc3")]
 position = Vector2(80, 120)
