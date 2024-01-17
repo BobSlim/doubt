@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dchmjgq5vdfwu" path="res://player/player.tscn" id="1_r46qn"]
 [ext_resource type="PackedScene" uid="uid://dblrbl67llhb8" path="res://tileset/tiles.tscn" id="2_qqnm7"]
 [ext_resource type="PackedScene" uid="uid://ihlvimm62ka0" path="res://player/doubt/doubtTimer.tscn" id="3_2ceh7"]
-[ext_resource type="Texture2D" uid="uid://b5kugxdsnbads" path="res://assets/thumbdrake.jpg" id="4_yowhr"]
 [ext_resource type="PackedScene" uid="uid://cqbedxkc03v4n" path="res://pickup/pickup.tscn" id="6_i84lp"]
 [ext_resource type="PackedScene" uid="uid://cm11ecmnycge7" path="res://entity/walker/walker.tscn" id="6_jbrc3"]
 [ext_resource type="Texture2D" uid="uid://bq3odckbommlj" path="res://assets/windows-xp-bliss-wallpaper-in-8k-ai-upscaled-v0-puzkje595kf81.webp" id="7_b41r3"]
@@ -48,10 +47,10 @@ scale = Vector2(0.0612583, 0.0529412)
 texture = ExtResource("4_yowhr")
 
 [node name="Walker" parent="." instance=ExtResource("6_jbrc3")]
-position = Vector2(64, 120)
+position = Vector2(80, 120)
 
 [node name="Pickup" parent="." instance=ExtResource("6_i84lp")]
-position = Vector2(72, 80)
+position = Vector2(120, 88)
 
 [connection signal="doubt_changed" from="player/doubt" to="CanvasLayer/DoubtTimer" method="_on_doubt_doubt_changed"]
 
