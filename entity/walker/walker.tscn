@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cm11ecmnycge7"]
 
 [ext_resource type="Script" path="res://entity/walker/walker.gd" id="1_lc5cd"]
-[ext_resource type="Texture2D" uid="uid://bsers4mtvsxp1" path="res://entity/walker/lil-bad-guy-01-new.png" id="2_sl4hq"]
+[ext_resource type="Texture2D" uid="uid://bsers4mtvsxp1" path="res://entity/walker/walker1-v2.png" id="2_sl4hq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q1xxi"]
 radius = 3.0

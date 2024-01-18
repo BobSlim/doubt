@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://dchmjgq5vdfwu"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_aes2s"]
-[ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://player/Lil-Guy-V2.png" id="2_mv50j"]
+[ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://player/red-v2.png" id="2_mv50j"]
 [ext_resource type="Script" path="res://player/doubt/doubtSystem.gd" id="3_l7jv3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opgwv"]

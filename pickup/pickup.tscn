@@ -1,13 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqbedxkc03v4n"]
+[gd_scene load_steps=9 format=3 uid="uid://cqbedxkc03v4n"]
 
-[ext_resource type="Texture2D" uid="uid://bcksfsrlj6nym" path="res://assets/icon.svg" id="1_ayfys"]
 [ext_resource type="Script" path="res://pickup/pickup.gd" id="1_s2nys"]
+[ext_resource type="Texture2D" uid="uid://d8lfsqmb0ij0" path="res://pickup/happy-memories-v1.png" id="2_hs376"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mcu1"]
+atlas = ExtResource("2_hs376")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byq45"]
+atlas = ExtResource("2_hs376")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ae3c"]
+atlas = ExtResource("2_hs376")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tffp"]
+atlas = ExtResource("2_hs376")
+region = Rect2(16, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wb1ok"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ayfys")
+"texture": SubResource("AtlasTexture_7mcu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byq45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mcu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ae3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tffp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ae3c")
 }],
 "loop": true,
 "name": &"default",
@@ -23,9 +54,8 @@ script = ExtResource("1_s2nys")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.0625, 0.0625)
 sprite_frames = SubResource("SpriteFrames_wb1ok")
-frame_progress = 0.718254
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bpu02")
