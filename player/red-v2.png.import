@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolr5rtvykquu"
-path="res://.godot/imported/Doubt-Spider-V1.png-5860a9dd463dc13c8e5e0bdee91b57a7.ctex"
+uid="uid://b1ccwh5rynxtx"
+path="res://.godot/imported/red-v2.png-548d00df68fd39d0e26298e96a363eec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entity/Doubt Spider/Doubt-Spider-V1.png"
-dest_files=["res://.godot/imported/Doubt-Spider-V1.png-5860a9dd463dc13c8e5e0bdee91b57a7.ctex"]
+source_file="res://player/red-v2.png"
+dest_files=["res://.godot/imported/red-v2.png-548d00df68fd39d0e26298e96a363eec.ctex"]
 
 [params]
 

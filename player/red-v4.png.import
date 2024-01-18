@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkjco12cu6m1g"
-path="res://.godot/imported/lil-guy-sheet.png-eb21570f1b173f273957780cc9b82bf0.ctex"
+path="res://.godot/imported/red-v4.png-757c77fd82687f1f4ef334b16b08af32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/lil-guy-sheet.png"
-dest_files=["res://.godot/imported/lil-guy-sheet.png-eb21570f1b173f273957780cc9b82bf0.ctex"]
+source_file="res://player/red-v4.png"
+dest_files=["res://.godot/imported/red-v4.png-757c77fd82687f1f4ef334b16b08af32.ctex"]
 
 [params]
 
