@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dchmjgq5vdfwu"]
+[gd_scene load_steps=26 format=3 uid="uid://dchmjgq5vdfwu"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_aes2s"]
-[ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://player/red-v2.png" id="2_mv50j"]
+[ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://player/red-v3.png" id="2_mv50j"]
 [ext_resource type="Script" path="res://player/doubt/doubtSystem.gd" id="3_l7jv3"]
+[ext_resource type="Texture2D" uid="uid://byhenj4sdv7uo" path="res://player/red-v4.png" id="4_e4dq6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opgwv"]
 radius = 3.0
@@ -197,7 +198,7 @@ shape = SubResource("CapsuleShape2D_opgwv")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h3bb6")
-animation = &"Stage_1_Default"
+animation = &"Stage_2_Walk"
 
 [node name="doubt" type="Node" parent="."]
 script = ExtResource("3_l7jv3")
@@ -206,5 +207,26 @@ script = ExtResource("3_l7jv3")
 position = Vector2(2, -0.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="legs" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_e4dq6")
+hframes = 3
+region_enabled = true
+region_rect = Rect2(0, 80, 48, 16)
+
+[node name="body" type="Sprite2D" parent="legs"]
+texture = ExtResource("4_e4dq6")
+hframes = 8
+vframes = 4
+frame = 17
+region_enabled = true
+region_rect = Rect2(0, 16, 128, 64)
+
+[node name="head" type="Sprite2D" parent="legs/body"]
+texture = ExtResource("4_e4dq6")
+hframes = 4
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
 
 [connection signal="doubt_stage_changed" from="doubt" to="." method="_on_doubt_doubt_stage_changed"]
