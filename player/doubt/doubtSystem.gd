@@ -16,7 +16,7 @@ var doubt := 3.0:
 		doubt = clamp(value, 0.0, DOUBT_MAX)
 		doubt_changed.emit(doubt)
 		if old_doubt_stage != doubt_stage:
-			doubt_stage_changed.emit(doubt_stage)
+			doubt_stage_changed.emit(doubt_stage, old_doubt_stage)
 
 var doubt_stage := DOUBT_STAGES.OLD:
 	get:
@@ -38,7 +38,7 @@ var doubt_stage := DOUBT_STAGES.OLD:
 @export var DOUBT_UPTIME_SECS := 5.0
 
 signal doubt_changed(doubt)
-signal doubt_stage_changed(doubt_stage)
+signal doubt_stage_changed(new, old)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
