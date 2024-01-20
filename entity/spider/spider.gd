@@ -4,6 +4,7 @@ extends StaticBody2D
 @onready var Sprite = $AnimatedSprite2D as AnimatedSprite2D
 @onready var ResetTimer = $Timer as Timer
 
+const SCAN_TIME = 1.5
 var active = false
 
 func activate():
@@ -33,10 +34,9 @@ func _on_animated_sprite_2d_animation_finished():
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	Ray.rotation = Ray.rotation + PI * delta
+	Ray.rotation = Ray.rotation + SCAN_TIME * PI * delta
 	var collided = Ray.get_collider()
 	if collided and collided.is_in_group("player"):
 		activate()

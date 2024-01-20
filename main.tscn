@@ -51,10 +51,16 @@ scale = Vector2(0.0612583, 0.0529412)
 position = Vector2(68, 148)
 
 [node name="Pickup" parent="." instance=ExtResource("6_i84lp")]
-position = Vector2(132, 124)
+position = Vector2(124, 148)
 
 [node name="Spider" parent="." instance=ExtResource("7_sap3a")]
 position = Vector2(76, 140)
+
+[node name="Pickup3" parent="." instance=ExtResource("6_i84lp")]
+position = Vector2(132, 148)
+
+[node name="Pickup2" parent="." instance=ExtResource("6_i84lp")]
+position = Vector2(116, 148)
 
 [connection signal="doubt_changed" from="player/doubt" to="CanvasLayer/DoubtTimer" method="_on_doubt_doubt_changed"]
 

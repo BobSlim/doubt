@@ -62,12 +62,10 @@ func _physics_process(delta: float):
 	var is_right = true if direction >= 0 else false
 	if direction:
 		velocity.x = direction * SPEED
-		for i in [$body, $body/head, $body/legs]:
+		for i in [$body, $body/head, $body/legs, $body/transition, $body/attack]:
 			i.flip_h = !is_right
 		WalkAnimator.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		WalkAnimator.stop()
-	
 	move_and_slide()
-
