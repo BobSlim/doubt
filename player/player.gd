@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -180.0
 @onready var DoubtNode = $doubt as DoubtSystem
 @onready var WalkAnimator = $walkAnimator as AnimationPlayer
 @onready var BodyAnimator = $bodyAnimator as AnimationPlayer
+@onready var AttackAnimator = $attackAnimator as AnimationPlayer
 @onready var HeadSprite = $body/head as Sprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -29,9 +30,9 @@ func _on_doubt_doubt_stage_changed(new: int, old: int):
 	var OLDER = [DoubtNode.DOUBT_STAGES.OLD, DoubtNode.DOUBT_STAGES.MIDDLE]
 	var YOUNGER = [DoubtNode.DOUBT_STAGES.ADULT, DoubtNode.DOUBT_STAGES.PRIME]
 	if OLDER.has(new) and YOUNGER.has(old):
-		BodyAnimator.play("transition_to_young")
-	elif YOUNGER.has(new) and OLDER.has(old):
 		BodyAnimator.play("transition_to_old")
+	elif YOUNGER.has(new) and OLDER.has(old):
+		BodyAnimator.play("transition_to_young")
 
 func pickup(confidence_boost):
 	DoubtNode.doubt = DoubtNode.doubt + confidence_boost
@@ -54,7 +55,7 @@ func _physics_process(delta: float):
 			can_double_jump = false
 
 	if Input.is_action_just_pressed("ui_accept"):
-		BodyAnimator.play("attack")
+		AttackAnimator.play("attack")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
