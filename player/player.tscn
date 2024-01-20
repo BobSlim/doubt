@@ -1,9 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://dchmjgq5vdfwu"]
+[gd_scene load_steps=43 format=3 uid="uid://dchmjgq5vdfwu"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_aes2s"]
 [ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://player/red-v3.png" id="2_mv50j"]
 [ext_resource type="Script" path="res://player/doubt/doubtSystem.gd" id="3_l7jv3"]
 [ext_resource type="Texture2D" uid="uid://bgl7jnosbqr7c" path="res://player/red-v5.png" id="4_d0bjc"]
+[ext_resource type="Script" path="res://player/textbubble.gd" id="6_7pq70"]
+[ext_resource type="FontFile" uid="uid://c6w72r63305ny" path="res://assets/m3x6.ttf" id="6_kih6d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opgwv"]
 radius = 3.0
@@ -387,6 +389,10 @@ _data = {
 "transition_to_young": SubResource("Animation_dyo1v")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_lve5o"]
+font = ExtResource("6_kih6d")
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_aes2s")
 
@@ -439,4 +445,31 @@ libraries = {
 "": SubResource("AnimationLibrary_h6mg7")
 }
 
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -32.0
+offset_right = 64.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hello, I am a person.
+BNlah blah blahb labha"
+label_settings = SubResource("LabelSettings_lve5o")
+horizontal_alignment = 1
+vertical_alignment = 2
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("6_7pq70")
+say_queue_start = PackedStringArray("Hullo!", "I am Red.", "How are you?", "And suchl.")
+
+[node name="Timer" type="Timer" parent="Label"]
+wait_time = 0.05
+autostart = true
+
 [connection signal="doubt_stage_changed" from="doubt" to="." method="_on_doubt_doubt_stage_changed"]
+[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]

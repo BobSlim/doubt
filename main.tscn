@@ -35,7 +35,7 @@ offset_bottom = -20.0
 grow_vertical = 0
 
 [node name="player" parent="." instance=ExtResource("1_r46qn")]
-position = Vector2(104, 144)
+position = Vector2(100, 148)
 metadata/_edit_group_ = true
 
 [node name="Tiles" parent="." instance=ExtResource("2_qqnm7")]
@@ -47,10 +47,10 @@ position = Vector2(136, 152)
 scale = Vector2(0.0612583, 0.0529412)
 
 [node name="Walker" parent="." instance=ExtResource("6_jbrc3")]
-position = Vector2(64, 144)
+position = Vector2(68, 148)
 
 [node name="Pickup" parent="." instance=ExtResource("6_i84lp")]
-position = Vector2(152, 112)
+position = Vector2(132, 124)
 
 [connection signal="doubt_changed" from="player/doubt" to="CanvasLayer/DoubtTimer" method="_on_doubt_doubt_changed"]
 
