@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -180.0
 @onready var BodyAnimator = $bodyAnimator as AnimationPlayer
 @onready var AttackAnimator = $attackAnimator as AnimationPlayer
 @onready var HeadSprite = $body/head as Sprite2D
+@onready var AttackArea = $attackArea as Area2D
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -55,6 +57,9 @@ func _physics_process(delta: float):
 			can_double_jump = false
 
 	if Input.is_action_just_pressed("ui_accept"):
+		for i in AttackArea.get_overlapping_bodies():
+			pickup(0.125)
+			i.queue_free()
 		AttackAnimator.play("attack")
 
 	# Get the input direction and handle the movement/deceleration.
@@ -65,6 +70,7 @@ func _physics_process(delta: float):
 		velocity.x = direction * SPEED
 		for i in [$body, $body/head, $body/legs, $body/transition, $body/attack]:
 			i.flip_h = !is_right
+		AttackArea.position.x = 5 if is_right else -5
 		WalkAnimator.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
