@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgqy1llnkawhi"]
+
+[ext_resource type="Script" path="res://pickup/pickup.gd" id="1_tsj8a"]
+[ext_resource type="Texture2D" uid="uid://d8lfsqmb0ij0" path="res://pickup/happy-memories-v1.png" id="2_af7ia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mcu1"]
+atlas = ExtResource("2_af7ia")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byq45"]
+atlas = ExtResource("2_af7ia")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ae3c"]
+atlas = ExtResource("2_af7ia")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tffp"]
+atlas = ExtResource("2_af7ia")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wb1ok"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mcu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byq45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mcu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ae3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tffp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ae3c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpu02"]
+radius = 4.0
+
+[node name="Pickup" type="Area2D"]
+collision_layer = 8
+script = ExtResource("1_tsj8a")
+confidence_boost = 0.25
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wb1ok")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bpu02")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -41,7 +41,7 @@ func _on_doubt_doubt_stage_changed(new: int, old: int):
 		BodyAnimator.play("transition_to_young")
 
 func pickup(confidence_boost):
-	DoubtNode.doubt = DoubtNode.doubt + confidence_boost
+	DoubtNode.doubt += confidence_boost
 
 func _ready():
 	_on_doubt_doubt_stage_changed(DoubtNode.doubt_stage, DoubtNode.doubt_stage)
@@ -89,3 +89,6 @@ func _physics_process(delta: float):
 		velocity.x = move_toward(velocity.x, 0, 500.0*delta)
 		WalkAnimator.stop()
 	move_and_slide()
+
+func queue_say(str):
+	$say_label.queue_say(str)

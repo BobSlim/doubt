@@ -8,7 +8,7 @@ enum DOUBT_STAGES {
 	OLD,
 }
 
-var doubt := 3.0:
+var doubt := 0.0:
 	get:
 		return doubt
 	set(value):

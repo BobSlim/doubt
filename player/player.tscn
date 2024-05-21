@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ccwh5rynxtx" path="res://player/red-v3.png" id="2_mv50j"]
 [ext_resource type="Script" path="res://player/doubt/doubtSystem.gd" id="3_l7jv3"]
 [ext_resource type="Texture2D" uid="uid://bgl7jnosbqr7c" path="res://player/red-v5.png" id="4_d0bjc"]
-[ext_resource type="Script" path="res://player/textbubble.gd" id="6_7pq70"]
+[ext_resource type="Script" path="res://player/say/textbubble.gd" id="6_6jh5n"]
 [ext_resource type="FontFile" uid="uid://c6w72r63305ny" path="res://assets/m3x6.ttf" id="6_kih6d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_opgwv"]
@@ -494,6 +494,8 @@ animation = &"Stage_2_Default"
 
 [node name="doubt" type="Node" parent="."]
 script = ExtResource("3_l7jv3")
+DOUBT_STARTING = 0.0
+DOUBT_UPTIME_SECS = 15.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 drag_horizontal_enabled = true
@@ -553,7 +555,7 @@ libraries = {
 "": SubResource("AnimationLibrary_kpfky")
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="say_label" type="Label" parent="."]
 z_index = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -566,20 +568,20 @@ offset_right = 64.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Hello, I am a person.
-BNlah blah blahb labha"
 label_settings = SubResource("LabelSettings_lve5o")
 horizontal_alignment = 1
 vertical_alignment = 2
 visible_characters = 0
 visible_ratio = 0.0
-script = ExtResource("6_7pq70")
-say_queue_start = PackedStringArray("Hullo!", "I am Red.", "How are you?", "And suchl.")
+script = ExtResource("6_6jh5n")
 
-[node name="Timer" type="Timer" parent="Label"]
-wait_time = 0.05
+[node name="BlipTimer" type="Timer" parent="say_label"]
+wait_time = 0.037
 autostart = true
+
+[node name="GoneTimer" type="Timer" parent="say_label"]
 
 [connection signal="doubt_stage_changed" from="doubt" to="." method="_on_doubt_doubt_stage_changed"]
 [connection signal="body_entered" from="attackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="timeout" from="Label/Timer" to="Label" method="_on_timer_timeout"]
+[connection signal="timeout" from="say_label/BlipTimer" to="say_label" method="_on_timer_timeout"]
+[connection signal="timeout" from="say_label/GoneTimer" to="say_label" method="_on_gone_timer_timeout"]
